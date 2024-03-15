@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title><?= $title ?></title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css" />
-  <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css" />
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css" />
+  <link rel="stylesheet" href="/vendors/simple-line-icons/css/simple-line-icons.css" />
+  <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css" />
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css" />
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="./vendors/daterangepicker/daterangepicker.css" />
-  <link rel="stylesheet" href="./vendors/chartist/chartist.min.css" />
+  <link rel="stylesheet" href="/vendors/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="/vendors/chartist/chartist.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="./images/favicon.png" />
+  <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 
 <body>
@@ -29,9 +29,9 @@
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
         <a class="navbar-brand brand-logo" href="/">
-          <img src="images/logo.svg" alt="logo" class="logo-dark" />
+          <img src="/images/logo.svg" alt="logo" class="logo-dark" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/images/logo-mini.svg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
         <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Playstation Rental Dashboard!</h5>
@@ -72,17 +72,17 @@
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="./vendors/chart.js/Chart.min.js"></script>
-  <script src="./vendors/moment/moment.min.js"></script>
-  <script src="./vendors/daterangepicker/daterangepicker.js"></script>
-  <script src="./vendors/chartist/chartist.min.js"></script>
+  <script src="/vendors/chart.js/Chart.min.js"></script>
+  <script src="/vendors/moment/moment.min.js"></script>
+  <script src="/vendors/daterangepicker/daterangepicker.js"></script>
+  <script src="/vendors/chartist/chartist.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/misc.js"></script>
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
-  <script src="./js/dashboard.js"></script>
+  <script src="/js/dashboard.js"></script>
   <!-- End custom js for this page -->
 </body>
 
