@@ -1,6 +1,9 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<?php
+$session = \Config\Services::session();
+?>
 
 <div class="content-wrapper">
     <div class="page-header">
@@ -12,6 +15,14 @@
             </ol>
         </nav>
     </div>
+
+    <!-- notif flSH DATA -->
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success text-center fw-bolder fs-4" role="alert">
+            <?= session()->getFlashdata('pesan') ?>
+        </div>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col grid-margin stretch-card">
             <div class="card">

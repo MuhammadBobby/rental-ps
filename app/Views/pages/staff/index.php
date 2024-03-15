@@ -1,6 +1,9 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<?php
+$session = \Config\Services::session();
+?>
 
 <div class="content-wrapper">
     <div class="page-header">
@@ -12,11 +15,20 @@
             </ol>
         </nav>
     </div>
+
+
+    <!-- notif flSH DATA -->
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success text-center fw-bolder fs-4" role="alert">
+            <?= session()->getFlashdata('pesan') ?>
+        </div>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <a href="" class="btn btn-success">Add Data</a>
+                    <a href="/staff/create" class="btn btn-success">Add Data</a>
                     <table class="table text-center">
                         <thead>
                             <tr>
@@ -36,8 +48,8 @@
                                     <td><?= $st['Nama'] ?></td>
                                     <td><label class="badge <?= $st['Shift'] === 'siang' ? 'badge-light' : 'badge-dark' ?>"><?= $st['Shift'] ?></label></td>
                                     <td>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                        <a href="/staff/edit/<?= $st['PenjagaID'] ?>" class="btn-sm btn-warning">Edit</a>
+                                        <a href="/staff/delete/<?= $st['PenjagaID'] ?>" class="btn-sm btn-danger" onclick="return confirm('Are you sure delete this item?')">Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

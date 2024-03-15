@@ -26,6 +26,11 @@ $routes->get('/member/delete/(:num)', 'Member::delete/$1');
 
 // staff
 $routes->get('/staff', 'Staff::index');
+$routes->get('/staff/create', 'Staff::create');
+$routes->post('/staff/save', 'Staff::save');
+$routes->get('/staff/edit/(:num)', 'Staff::edit/$1');
+$routes->post('/staff/update/(:num)', 'Staff::update/$1');
+$routes->get('/staff/delete/(:num)', 'Staff::delete/$1');
 
 
 

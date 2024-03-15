@@ -7,8 +7,9 @@ use CodeIgniter\Model;
 class StaffModel extends Model
 {
     protected $table      = 'penjaga';
-    protected $useTimestamps = true;
     protected $allowedFields = ['Nama', 'Shift'];
+    protected $primaryKey = 'PenjagaID';
+
 
     public function getStaff($id = false)
     {
