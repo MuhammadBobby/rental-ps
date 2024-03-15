@@ -17,6 +17,11 @@ $routes->get('/inventaris/delete/(:num)', 'Inventaris::delete/$1');
 
 // member
 $routes->get('/member', 'Member::index');
+$routes->get('/member/create', 'Member::create');
+$routes->post('/member/save', 'Member::save');
+$routes->get('/member/edit/(:num)', 'Member::edit/$1');
+$routes->post('/member/update/(:num)', 'Member::update/$1');
+$routes->get('/member/delete/(:num)', 'Member::delete/$1');
 
 
 // staff

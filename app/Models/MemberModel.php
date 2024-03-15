@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class MemberModel extends Model
 {
     protected $table      = 'member';
-    protected $useTimestamps = true;
     protected $allowedFields = ['Nama', 'Alamat', 'Telepon', 'Email'];
+    protected $primaryKey = 'MemberID';
 
     public function getMember($id = false)
     {

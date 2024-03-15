@@ -16,7 +16,7 @@
         <div class="col grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <a href="" class="btn btn-success">Add Data</a>
+                    <a href="/member/create" class="btn btn-success">Add Data</a>
                     <table class="table text-center">
                         <thead>
                             <tr>
@@ -40,8 +40,8 @@
                                     <td><?= $mem['Telepon'] ?></td>
                                     <td><?= $mem['Email'] ?></td>
                                     <td>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                        <a href="/member/edit/<?= $mem['MemberID'] ?>" class="btn-sm btn-warning">Edit</a>
+                                        <a href="/member/delete/<?= $mem['MemberID'] ?>" class="btn-sm btn-danger" onclick="return confirm('Are you sure delete this item?')">Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -21,7 +21,121 @@ class Member extends BaseController
             'title' => "Dashboard | Member Data",
             'member' => $this->memberModel->getMember()
         ];
-
         return view('pages/member/index', $data);
+    }
+
+    // create
+    public function create()
+    {
+        $data = [
+            'title' => "Dashboard | Create Data",
+            'validation' => \Config\Services::validation()
+        ];
+        return view('pages/member/create', $data);
+    }
+
+    // save
+    public function save()
+    {
+        // validation
+        $rules = [
+            'Nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Name of the member item must be filled in.',
+                ]
+            ],
+            'Alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Address of the member item must be filled in.',
+                ]
+            ],
+            'Telepon' =>  [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Telephone of the member item must be filled in.',
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+            $validation = \Config\Services::validation();
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $data = [
+            'Nama' => $this->request->getVar('Nama'),
+            'Alamat' => $this->request->getVar('Alamat'),
+            'Telepon' => $this->request->getVar('Telepon'),
+            'Email' => $this->request->getVar('Email'),
+        ];
+        $this->memberModel->save($data);
+
+        // flash data
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+        return redirect()->to('/member');
+    }
+
+    // edit
+    public function edit($id)
+    {
+        $data = [
+            'title' => "Dashboard | Edit Data",
+            'member' => $this->memberModel->getMember($id),
+            'validation' => \Config\Services::validation()
+        ];
+        return view('pages/member/edit', $data);
+    }
+
+
+    // update
+    public function update($id)
+    {
+        // validation
+        $rules = [
+            'Nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Name of the member item must be filled in.',
+                ]
+            ],
+            'Alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Address of the member item must be filled in.',
+                ]
+            ],
+            'Telepon' =>  [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'The Telephone of the member item must be filled in.',
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+            $validation = \Config\Services::validation();
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $data = [
+            'MemberID' => $id,
+            'Nama' => $this->request->getVar('Nama'),
+            'Alamat' => $this->request->getVar('Alamat'),
+            'Telepon' => $this->request->getVar('Telepon'),
+            'Email' => $this->request->getVar('Email'),
+        ];
+        $this->memberModel->save($data);
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        return redirect()->to('/member');
+    }
+
+    // remove
+    public function delete($id)
+    {
+        $this->memberModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+        return redirect()->to('/member');
     }
 }

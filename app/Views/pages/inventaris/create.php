@@ -57,7 +57,7 @@
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </form>
-                    <a href="/inventaris" class="text-secondary text-primary">&laquo; Cancel Edit Inventaris</a>
+                    <a href="/inventaris" class="text-secondary text-primary">&laquo; Cancel Create Inventaris</a>
                 </div>
             </div>
         </div>
