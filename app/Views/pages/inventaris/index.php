@@ -34,6 +34,7 @@ $session = \Config\Services::session();
                                 <th class="col-1">No.</th>
                                 <th>Name</th>
                                 <th>Type</th>
+                                <th>Hourly Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -47,6 +48,7 @@ $session = \Config\Services::session();
                                     <td><?= $num++ ?></td>
                                     <td><?= $in['NamaBarang'] ?></td>
                                     <td><?= $in['Jenis'] ?></td>
+                                    <td><?= $in['HargaPerJam'] ?></td>
                                     <td><label class="badge <?= $in['Status'] === 'tersedia' ? 'badge-success' : 'badge-danger' ?>"><?= $in['Status'] ?></label></td>
                                     <td>
                                         <a href="/inventaris/edit/<?= $in['BarangID'] ?>" class="btn-sm btn-warning">Edit</a>

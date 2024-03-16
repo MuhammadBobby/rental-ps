@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class InventarisModel extends Model
 {
     protected $table      = 'inventaris';
-    protected $allowedFields = ['NamaBarang', 'Jenis', 'Status'];
+    protected $allowedFields = ['NamaBarang', 'Jenis', 'Status', 'HargaPerJam'];
     protected $primaryKey = 'BarangID';
 
     public function getInventaris($id = false)

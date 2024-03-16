@@ -1,6 +1,9 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<?php
+$session = \Config\Services::session();
+?>
 
 <div class="content-wrapper">
     <div class="page-header">
@@ -12,6 +15,15 @@
             </ol>
         </nav>
     </div>
+
+    <!-- notif flSH DATA -->
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success text-center fw-bolder fs-4" role="alert">
+            <?= session()->getFlashdata('pesan') ?>
+        </div>
+    <?php endif; ?>
+
+
     <div class="row">
         <div class="col grid-margin stretch-card">
             <div class="card">
@@ -25,7 +37,6 @@
                                 <th>Staff</th>
                                 <th>Duration</th>
                                 <th>Type</th>
-                                <th>Order Date</th>
                                 <th>Total Price</th>
                                 <th>Action</th>
                             </tr>
@@ -41,11 +52,9 @@
                                     <td><?= $bk['NamaStaff'] ?></td>
                                     <td><?= $bk['Durasi'] ?> Jam</td>
                                     <td><?= $bk['NamaBarang'] ?></td>
-                                    <td><?= $bk['TanggalPemesanan'] ?></td>
                                     <td>Rp. <?= $bk['TotalBiaya'] ?></td>
                                     <td>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                        <a href="/booking/delete/<?= $bk['PemesananID'] ?>" class="btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

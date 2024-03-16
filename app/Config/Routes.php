@@ -23,7 +23,6 @@ $routes->get('/member/edit/(:num)', 'Member::edit/$1');
 $routes->post('/member/update/(:num)', 'Member::update/$1');
 $routes->get('/member/delete/(:num)', 'Member::delete/$1');
 
-
 // staff
 $routes->get('/staff', 'Staff::index');
 $routes->get('/staff/create', 'Staff::create');
@@ -32,7 +31,8 @@ $routes->get('/staff/edit/(:num)', 'Staff::edit/$1');
 $routes->post('/staff/update/(:num)', 'Staff::update/$1');
 $routes->get('/staff/delete/(:num)', 'Staff::delete/$1');
 
-
-
 // transaksi
 $routes->get('/booking', 'Booking::index');
+$routes->get('/booking/create', 'Booking::create');
+$routes->post('/booking/save', 'Booking::save');
+$routes->get('/booking/delete/(:num)', 'Booking::delete/$1');

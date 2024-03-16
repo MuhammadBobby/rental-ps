@@ -54,6 +54,10 @@
                                 <option value="disewa">Disewa</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="HargaPerJam">hourly price</label>
+                            <input type="number" class="form-control" id="HargaPerJam" name="HargaPerJam" placeholder="1xxxxxx">
+                        </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </form>

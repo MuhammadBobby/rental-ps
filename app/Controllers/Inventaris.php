@@ -58,6 +58,13 @@ class Inventaris extends BaseController
                     'required' => 'The Status of the Inventaris item must be filled in.',
                 ]
             ],
+            'HargaPerJam' =>  [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'The Price of the Inventaris item must be filled in.',
+                    'numeric' => 'The Price of the Inventaris item must be numeric.',
+                ]
+            ],
         ];
 
         if (!$this->validate($rules)) {
@@ -69,6 +76,7 @@ class Inventaris extends BaseController
             'NamaBarang' => $this->request->getVar('NamaBarang'),
             'Jenis' => $this->request->getVar('Jenis'),
             'Status' => $this->request->getVar('Status'),
+            'HargaPerJam' => $this->request->getVar('HargaPerJam'),
         ];
         $this->inventarisModel->save($data);
 
@@ -112,6 +120,13 @@ class Inventaris extends BaseController
                     'required' => 'The Status of the Inventaris item must be filled in.',
                 ]
             ],
+            'HargaPerJam' =>  [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'The Price of the Inventaris item must be filled in.',
+                    'numeric' => 'The Price of the Inventaris item must be numeric.',
+                ]
+            ],
         ];
 
         if (!$this->validate($rules)) {
@@ -124,6 +139,7 @@ class Inventaris extends BaseController
             'NamaBarang' => $this->request->getVar('NamaBarang'),
             'Jenis' => $this->request->getVar('Jenis'),
             'Status' => $this->request->getVar('Status'),
+            'HargaPerJam' => $this->request->getVar('HargaPerJam'),
         ];
         $this->inventarisModel->save($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');

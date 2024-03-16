@@ -57,6 +57,12 @@ class Member extends BaseController
                     'required' => 'The Telephone of the member item must be filled in.',
                 ]
             ],
+            'Email' =>  [
+                'rules' => 'valid_email|is_unique[member.Email]',
+                'errors' => [
+                    'required' => 'Sorry. That email has already been taken. Please choose another.',
+                ]
+            ],
         ];
 
         if (!$this->validate($rules)) {
@@ -110,6 +116,12 @@ class Member extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'The Telephone of the member item must be filled in.',
+                ]
+            ],
+            'Email' =>  [
+                'rules' => 'valid_email|is_unique[member.Email]',
+                'errors' => [
+                    'required' => 'Sorry. That email has already been taken. Please choose another.',
                 ]
             ],
         ];
