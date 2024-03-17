@@ -28,7 +28,8 @@ $session = \Config\Services::session();
         <div class="col grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <a href="/booking/create " class="btn btn-success">Add Data</a>
+                    <a href="/booking/create" class="btn btn-success">Add Data</a>
+                    <a href="/report/booking" target="_blank" class="btn btn-primary">Print PDF</a>
                     <table class="table text-center">
                         <thead>
                             <tr>
