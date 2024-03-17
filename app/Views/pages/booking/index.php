@@ -28,7 +28,7 @@ $session = \Config\Services::session();
         <div class="col grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <a href="" class="btn btn-success">Add Data</a>
+                    <a href="/booking/create " class="btn btn-success">Add Data</a>
                     <table class="table text-center">
                         <thead>
                             <tr>
@@ -37,6 +37,7 @@ $session = \Config\Services::session();
                                 <th>Staff</th>
                                 <th>Duration</th>
                                 <th>Type</th>
+                                <th>Date</th>
                                 <th>Total Price</th>
                                 <th>Action</th>
                             </tr>
@@ -52,9 +53,10 @@ $session = \Config\Services::session();
                                     <td><?= $bk['NamaStaff'] ?></td>
                                     <td><?= $bk['Durasi'] ?> Jam</td>
                                     <td><?= $bk['NamaBarang'] ?></td>
+                                    <td><?= date_format(date_create($bk['TanggalPemesanan']), 'd-m-Y'); ?></td>
                                     <td>Rp. <?= $bk['TotalBiaya'] ?></td>
                                     <td>
-                                        <a href="/booking/delete/<?= $bk['PemesananID'] ?>" class="btn-sm btn-danger">Delete</a>
+                                        <a href="/booking/delete/<?= $bk['PemesananID'] ?>" class="btn-sm btn-danger" onclick="return confirm('Are you sure Delete this data?')">Delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

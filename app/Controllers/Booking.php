@@ -3,16 +3,25 @@
 namespace App\Controllers;
 
 use App\Models\BookingModel;
+use App\Models\InventarisModel;
+use App\Models\MemberModel;
+use App\Models\StaffModel;
 
 class Booking extends BaseController
 {
 
     protected $bookingModel;
+    protected $memberModel;
+    protected $staffModel;
+    protected $inventarisModel;
 
     // construct untuk db
     public function __construct()
     {
         $this->bookingModel = new BookingModel();
+        $this->memberModel = new MemberModel();
+        $this->staffModel = new StaffModel();
+        $this->inventarisModel = new InventarisModel();
     }
 
     public function index(): string
@@ -29,7 +38,10 @@ class Booking extends BaseController
     {
         $data = [
             'title' => "Dashboard | Create Data",
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'members' => $this->memberModel->getMember(),
+            'staffs' => $this->staffModel->getStaff(),
+            'inventaris' => $this->inventarisModel->getInventaris()
         ];
         return view('pages/booking/create', $data);
     }
@@ -72,15 +84,16 @@ class Booking extends BaseController
         }
 
         // perhitungan untuk biaya
-        $Durasi = $this->request->getVar('Durasi');
-        $JenisPS = $this->request->getVar('JenisPS');
-        $TotalBiaya = $this->bookingModel->countBiaya($Durasi, $JenisPS);
+        $Durasi = intval($this->request->getVar('Durasi'));
+        $JenisPS = intval($this->request->getVar('JenisPS'));
+        $TotalBiaya = $this->inventarisModel->countBiaya($Durasi, $JenisPS);
 
         $data = [
             'MemberID' => $this->request->getVar('MemberID'),
             'PenjagaID' => $this->request->getVar('PenjagaID'),
             'Durasi' => $Durasi,
             'JenisPS' => $JenisPS,
+            'TanggalPemesanan' => date('Y-m-d'),
             'TotalBiaya' => $TotalBiaya
         ];
         $this->bookingModel->save($data);
