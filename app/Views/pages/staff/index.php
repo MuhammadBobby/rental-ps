@@ -29,6 +29,7 @@ $session = \Config\Services::session();
             <div class="card">
                 <div class="card-body">
                     <a href="/staff/create" class="btn btn-success">Add Data</a>
+                    <a href="/report/staff" target="_blank" class="btn btn-primary">Print PDF</a>
                     <table class="table text-center">
                         <thead>
                             <tr>

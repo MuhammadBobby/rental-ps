@@ -41,3 +41,6 @@ $routes->get('/booking/finish/(:num)/(:num)', 'Booking::finish/$1/$2');
 
 // report
 $routes->get('/report/booking', 'Report::booking');
+$routes->get('/report/inventaris', 'Report::inventaris');
+$routes->get('/report/member', 'Report::member');
+$routes->get('/report/staff', 'Report::staff');

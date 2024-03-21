@@ -28,6 +28,7 @@ $session = \Config\Services::session();
             <div class="card">
                 <div class="card-body">
                     <a href="/inventaris/create" class="btn btn-success">Add Data</a>
+                    <a href="/report/inventaris" target="_blank" class="btn btn-primary">Print PDF</a>
                     <table class="table text-center">
                         <thead>
                             <tr>
