@@ -52,12 +52,6 @@ class Inventaris extends BaseController
                     'required' => 'The Type of the Inventaris item must be filled in.',
                 ]
             ],
-            'Status' =>  [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'The Status of the Inventaris item must be filled in.',
-                ]
-            ],
             'HargaPerJam' =>  [
                 'rules' => 'required|numeric',
                 'errors' => [
@@ -75,7 +69,7 @@ class Inventaris extends BaseController
         $data = [
             'NamaBarang' => $this->request->getVar('NamaBarang'),
             'Jenis' => $this->request->getVar('Jenis'),
-            'Status' => $this->request->getVar('Status'),
+            'Status' => 'Tersedia',
             'HargaPerJam' => $this->request->getVar('HargaPerJam'),
         ];
         $this->inventarisModel->save($data);
@@ -112,12 +106,6 @@ class Inventaris extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'The Type of the Inventaris item must be filled in.',
-                ]
-            ],
-            'Status' =>  [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'The Status of the Inventaris item must be filled in.',
                 ]
             ],
             'HargaPerJam' =>  [

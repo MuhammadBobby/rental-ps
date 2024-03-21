@@ -36,6 +36,8 @@ $routes->get('/booking', 'Booking::index');
 $routes->get('/booking/create', 'Booking::create');
 $routes->post('/booking/save', 'Booking::save');
 $routes->get('/booking/delete/(:num)', 'Booking::delete/$1');
+$routes->get('/booking/show/(:num)', 'Booking::show/$1');
+$routes->get('/booking/finish/(:num)/(:num)', 'Booking::finish/$1/$2');
 
 // report
 $routes->get('/report/booking', 'Report::booking');

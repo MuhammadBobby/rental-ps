@@ -2,10 +2,14 @@
 
 namespace App\Controllers;
 
+date_default_timezone_set('Asia/Jakarta');
+
 use App\Models\BookingModel;
 use App\Models\InventarisModel;
 use App\Models\MemberModel;
 use App\Models\StaffModel;
+use DateInterval;
+use DateTime;
 
 class Booking extends BaseController
 {
@@ -41,7 +45,7 @@ class Booking extends BaseController
             'validation' => \Config\Services::validation(),
             'members' => $this->memberModel->getMember(),
             'staffs' => $this->staffModel->getStaff(),
-            'inventaris' => $this->inventarisModel->getInventaris()
+            'inventaris' => $this->inventarisModel->getInventarisStatus()
         ];
         return view('pages/booking/create', $data);
     }
@@ -88,21 +92,50 @@ class Booking extends BaseController
         $JenisPS = intval($this->request->getVar('JenisPS'));
         $TotalBiaya = $this->inventarisModel->countBiaya($Durasi, $JenisPS);
 
+        // perhitungan tanggal berkakhir
+        $dateTime = new DateTime(date('Y-m-d H:i:s'));
+        $dateTime->add(new DateInterval("PT{$Durasi}H"));
+        $waktuAkhir = $dateTime->format('Y-m-d H:i:s');
+        // $waktuAkhir = new DateTime($waktuAkhir);
+
         $data = [
             'MemberID' => $this->request->getVar('MemberID'),
             'PenjagaID' => $this->request->getVar('PenjagaID'),
             'Durasi' => $Durasi,
             'JenisPS' => $JenisPS,
-            'TanggalPemesanan' => date('Y-m-d'),
-            'TotalBiaya' => $TotalBiaya
+            'TanggalPemesanan' => date('Y-m-d H:i:s'),
+            'WaktuBerakhir' => $waktuAkhir,
+            'TotalBiaya' => $TotalBiaya,
+            'Status' => 'Berjalan',
         ];
         $this->bookingModel->save($data);
+
+        // update inventaris
+        $this->inventarisModel->updateInventaris($JenisPS);
 
         // flash data
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/booking');
     }
 
+    public function show($id)
+    {
+        $data = [
+            'title' => "Dashboard | Show Data",
+            'pemesanan' => $this->bookingModel->getBooking($id)
+        ];
+        return view('pages/booking/detail', $data);
+    }
+
+    public function finish($id, $JenisPS)
+    {
+        // update inventaris
+        $this->inventarisModel->updateFinish($JenisPS);
+        // update Status
+        $this->bookingModel->updateStatus($id);
+        session()->setFlashdata('pesan', 'Game Finished');
+        return redirect()->to('/booking');
+    }
 
     // remove
     public function delete($id)

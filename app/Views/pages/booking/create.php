@@ -47,7 +47,7 @@
                             <select class="form-control" name="PenjagaID" id="PenjagaID">
                                 <option selected>-- Select Staff --</option>
                                 <?php foreach ($staffs as $staff) : ?>
-                                    <option value="<?= $staff['PenjagaID'] ?>"><?= $staff['Nama'] ?></option>
+                                    <option value="<?= $staff['PenjagaID'] ?>"><?= $staff['Nama'] ?> - <?= $staff['Shift'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

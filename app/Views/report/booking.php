@@ -73,7 +73,8 @@
       <th>Staff</th>
       <th>Duration</th>
       <th>Type Playstation</th>
-      <th>Booking Date</th>
+      <th>Booking Date Time</th>
+      <th>Finish Date Time</th>
       <th>Total Price</th>
     </tr>
 
@@ -87,7 +88,8 @@
         <td><?= $bk['NamaStaff'] ?></td>
         <td><?= $bk['Durasi'] ?> Jam</td>
         <td><?= $bk['NamaBarang'] ?></td>
-        <td><?= date_format(date_create($bk['TanggalPemesanan']), 'd-m-Y'); ?></td>
+        <td><?= date_format(date_create($bk['TanggalPemesanan']), 'd-m-Y H:i'); ?></td>
+        <td><?= date_format(date_create($bk['WaktuBerakhir']), 'd-m-Y H:i'); ?></td>
         <td>Rp. <?= $bk['TotalBiaya'] ?></td>
       </tr>
     <?php endforeach; ?>

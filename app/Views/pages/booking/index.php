@@ -36,10 +36,9 @@ $session = \Config\Services::session();
                                 <th class="col-1">No.</th>
                                 <th>Member</th>
                                 <th>Staff</th>
-                                <th>Duration</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                                <th>Total Price</th>
+                                <th>Playstation</th>
+                                <th>Finish Time</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,12 +51,11 @@ $session = \Config\Services::session();
                                     <td><?= $num++ ?></td>
                                     <td><?= $bk['NamaMember'] ?></td>
                                     <td><?= $bk['NamaStaff'] ?></td>
-                                    <td><?= $bk['Durasi'] ?> Jam</td>
                                     <td><?= $bk['NamaBarang'] ?></td>
-                                    <td><?= date_format(date_create($bk['TanggalPemesanan']), 'd-m-Y'); ?></td>
-                                    <td>Rp. <?= $bk['TotalBiaya'] ?></td>
+                                    <td class="text-primary"><?= date_format(date_create($bk['WaktuBerakhir']), 'H:i'); ?> WIB</td>
+                                    <td><label class="badge <?= $bk['StatusPemesanan'] === 'Selesai' ? 'badge-success' : 'badge-danger' ?>"><?= $bk['StatusPemesanan'] ?></label></td>
                                     <td>
-                                        <a href="/booking/delete/<?= $bk['PemesananID'] ?>" class="btn-sm btn-danger" onclick="return confirm('Are you sure Delete this data?')">Delete</a>
+                                        <a href="/booking/show/<?= $bk['PemesananID'] ?>" class="btn-sm btn-warning">Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

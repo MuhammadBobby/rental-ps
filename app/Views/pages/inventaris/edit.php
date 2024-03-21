@@ -33,6 +33,9 @@
                     <h4 class="card-title">Edit Inventaris</h4>
                     <p class="card-description"> Form Edit Inventaris </p>
                     <form class="forms-sample" action="/inventaris/update/<?= $invent['BarangID'] ?>" method="post">
+                        <!-- status lama -->
+                        <input type="hidden" name="Status" value='<?= $invent['Status'] ?>'>
+
                         <div class="form-group">
                             <label for="NamaBarang">Name</label>
                             <input type="text" class="form-control" id="NamaBarang" name="NamaBarang" value="<?= old('NamaBarang', $invent['NamaBarang']) ?>">
@@ -55,24 +58,6 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
 
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="Status">Status</label>
-                            <select class="form-control" name="Status" id="Status">
-                                <?php
-                                // Contoh array untuk nilai enum
-                                // Asumsikan $invent['Status'] telah berisi nilai bawaan
-                                $statusOptions = ["tersedia", "disewa"];
-                                $defaultStatus = $invent['Status'];
-                                ?>
-                                <?php foreach ($statusOptions as $option) : ?>
-                                    <?php if ($option == $defaultStatus) : ?>
-                                        <option value="<?= esc($option) ?>" selected><?= esc($option) ?></option>
-                                    <?php else : ?>
-                                        <option value="<?= esc($option) ?>"><?= esc($option) ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">

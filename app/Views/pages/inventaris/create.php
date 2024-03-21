@@ -47,14 +47,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="Status">Status</label>
-                            <select class="form-control" name="Status" id="Status">
-                                <option selected>-- Select Status --</option>
-                                <option value="tersedia">Tersedia</option>
-                                <option value="disewa">Disewa</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="HargaPerJam">hourly price</label>
                             <input type="number" class="form-control" id="HargaPerJam" name="HargaPerJam" placeholder="1xxxxxx">
                         </div>
